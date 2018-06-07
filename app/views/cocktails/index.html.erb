@@ -1,0 +1,25 @@
+
+<div class="wrapper"></div>
+  <%= render 'shared/navbar' %>
+  <div class="banner" id="banner2" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1508253730651-e5ace80a7025?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cf395e42474f855162357f6f556e8b47&auto=format&fit=crop&w=500&q=60');">
+    <div class="banner-content">
+      <h1>All Cocktails</h1>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 card-flex">
+        <% @cocktails.each do |cocktail| %>
+        <div class="card card-flex" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1523905179092-38c52d029c9b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c5966df4e0ae577b116028dc1f9bb5ab&auto=format&fit=crop&w=1040&q=80');">
+          <div class="card-description">
+            <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
