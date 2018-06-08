@@ -6,6 +6,9 @@
         <h1>Create your favorite Cocktail</h1>
           <%= simple_form_for @cocktail do |f| %>
           <%= f.input :name, placeholder: "Insert the name of your cocktail here", label: false %>
+          <p>Upload your cocktail photo below</p>
+          <%= f.input :photo, label: false %>
+          <%= f.input :photo_cache, as: :hidden %>
           <%= f.button :submit %>
         <% end %>
       </div>
