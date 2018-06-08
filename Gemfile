@@ -37,6 +37,13 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+# gems inserted
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'font-awesome-sass', '~> 5.0.9'
+gem 'simple_form'
+gem 'figaro'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -52,11 +59,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-# gems inserted
-gem 'autoprefixer-rails'
-gem 'bootstrap-sass', '~> 3.3.7'
-gem 'font-awesome-sass', '~> 5.0.9'
-gem 'simple_form'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

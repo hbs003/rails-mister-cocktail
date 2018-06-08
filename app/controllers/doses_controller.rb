@@ -1,6 +1,8 @@
 class DosesController < ApplicationController
+  before_action :set_cocktail, only: [:new, :create]
+
   def new
-    @cocktail = Cocktail.find(params[:cocktail_id])
+    # @cocktail = Cocktail.find(params[:cocktail_id])
     # @ingredient = Ingredient.find(params[:ingredient_id])
     @dose = Dose.new
   end
@@ -8,9 +10,8 @@ class DosesController < ApplicationController
   def create
     @dose = Dose.new(review_params)
     # we need `cocktail_id/ingredient_id` to asssociate review with corresponding restaurant
-    @dose.cocktail = Cocktail.find(params[:cocktail_id])
+    @dose.cocktail = @cocktail
     @cocktail = @dose.cocktail
-    # raise
     @dose.ingredient = Ingredient.find(params["dose"]["ingredient_id"])
     if @dose.save
       redirect_to cocktail_path(@cocktail)
@@ -21,8 +22,9 @@ class DosesController < ApplicationController
 
   def destroy
      @dose = Dose.find(params[:id])
+     cocktail = @dose.cocktail
      @dose.destroy
-     redirect_to cocktail_path(@cocktail)
+     redirect_to cocktail_path(cocktail)
   end
 
   private
@@ -30,4 +32,10 @@ class DosesController < ApplicationController
   def review_params
     params.require(:dose).permit(:description)
   end
+
+  def set_cocktail
+   @cocktail = Cocktail.find(params[:cocktail_id])
+  end
+
+
 end

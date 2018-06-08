@@ -1,10 +1,31 @@
-<h2><%= @cocktail.name %></h2>
+<div>
+  <%= render 'shared/navbar' %>
+  <div>
+    <div class="banner" style="background-image: url('https://images.unsplash.com/photo-1485828052706-d62c6a23905f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=780e6942d354df049c07996b2c255900&auto=format&fit=crop&w=500&q=60');">
+      <div class="banner-content uptext">
+        <h2><%= @cocktail.name %></h2>
+        <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li><%= dose.description %> - <%= dose.ingredient.name %>
+            <%= link_to dose, method: :delete do %>
+            <i class="fa fa-trash"></i>
+            <% end %>
+          </li>
+        <% end %>
+        <%= link_to "New Dose", new_cocktail_dose_path(@cocktail) %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-links">
+      <%= link_to "Cocktails", cocktails_path %>
+      <a href="/"><i class="fa fa-glass-martini"></i></a>
+      <a href="/"><i class="fal fa-trash-alt"></i></a>
+    </div>
+  </div>
+</div>
 
-<ol>
-<% @cocktail.doses.each do |dose| %>
-  <li><%= dose.description %> // %= dose.ingredient.name %></li>
-<% end %>
-</ol>
 
 
 

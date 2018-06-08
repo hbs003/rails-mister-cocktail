@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
 }
 .banner h1 {
@@ -26,4 +27,9 @@
 height: 300px;
 background-size: auto;
 
+}
+
+.uptext{
+  position: relative;
+  top: -250px;
 }
